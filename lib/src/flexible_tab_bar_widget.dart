@@ -111,7 +111,7 @@ class FlexibleTabBar extends StatelessWidget {
     this.inactiveTextStyle,
     this.showDivider = true,
     this.dividerThickness = 1.0,
-    this.crossAxisAlignment = CrossAxisAlignment.stretch,
+    this.crossAxisAlignment = CrossAxisAlignment.center,
     this.tabPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
     this.alwaysShowLabel = false,
     this.countBadgeTextStyle,
@@ -153,7 +153,7 @@ class FlexibleTabBar extends StatelessWidget {
             if (!showDivider) return const SizedBox.shrink();
             return Container(
               width: dividerThickness,
-              padding: const EdgeInsets.symmetric(vertical: 3),
+              padding: const EdgeInsets.symmetric(vertical: 15),
               color: resolvedDivider,
             );
           }
