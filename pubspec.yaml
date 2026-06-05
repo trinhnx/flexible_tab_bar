@@ -1,6 +1,6 @@
 name: flexible_tab_bar
 description: A beautifully animated, flex-based tab bar for Flutter. Active tabs expand, inactive tabs compact — with icons, labels, optional count badges, and smooth transitions.
-version: 0.1.0
+version: 0.2.0
 repository: https://github.com/trinhnx/flexible_tab_bar
 homepage: https://trinhnx.dev
 issue_tracker: https://github.com/trinhnx/flexible_tab_bar/issues

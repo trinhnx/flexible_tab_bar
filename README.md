@@ -1,6 +1,6 @@
 # FlexibleTabBar
 
-[![version](https://img.shields.io/badge/version-0.1.0-blue)]()
+[![version](https://img.shields.io/badge/version-0.2.0-blue)]()
 [![pub.dev](https://img.shields.io/pub/v/flexible_tab_bar)](https://pub.dev/packages/flexible_tab_bar)
 [![license](https://img.shields.io/badge/license-MIT-green)]()
 
