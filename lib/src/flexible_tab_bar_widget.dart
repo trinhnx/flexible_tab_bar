@@ -124,7 +124,7 @@ class FlexibleTabBar extends StatelessWidget {
     final resolvedBg = backgroundColor ??
         theme.colorScheme.surfaceContainerHighest;
     final resolvedDivider =
-        dividerColor ?? inactiveColor.withValues(alpha: 0.1);
+        dividerColor ?? Colors.white.withValues(alpha: 0.3);
 
     final defaultActiveStyle = activeTextStyle ??
         TextStyle(

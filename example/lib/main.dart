@@ -34,12 +34,6 @@ class _HomePageState extends State<HomePage> {
   int _selectedIndex2 = 0;
   int _selectedIndex3 = 0;
 
-  final List<Coin> _coins = const [
-    Coin('BTC', Icons.currency_bitcoin, Colors.amber),
-    Coin('ETH', Icons.currency_bitcoin, Colors.blue),
-    Coin('SOL', Icons.currency_bitcoin, Colors.purple),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,9 +45,9 @@ class _HomePageState extends State<HomePage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          // --- Section 1: Basic usage with icons + labels ---
+          // --- Section 1: Basic usage with icons + badges + dividers ---
           const Text(
-            'Basic (count badges)',
+            'Basic (count badges, dividers)',
             style: TextStyle(color: Colors.grey, fontSize: 13),
           ),
           const SizedBox(height: 8),
@@ -109,74 +103,8 @@ class _HomePageState extends State<HomePage> {
             animationDuration: const Duration(milliseconds: 500),
             borderRadius: BorderRadius.circular(20),
           ),
-          const SizedBox(height: 32),
-
-          // --- Selected tab content ---
-          Text(
-            'Selected: ${_coinLabel(_selectedIndex)}',
-            style: const TextStyle(color: Colors.white70, fontSize: 14),
-          ),
-          const SizedBox(height: 16),
-          _buildCoinCards(),
         ],
       ),
     );
   }
-
-  String _coinLabel(int index) {
-    switch (index) {
-      case 0:
-        return 'Crypto — BTC \$67,432';
-      case 1:
-        return 'Commodity — Gold \$2,341';
-      case 2:
-        return 'Stocks — AAPL \$178';
-      default:
-        return '';
-    }
-  }
-
-  Widget _buildCoinCards() {
-    return Column(
-      children: _coins.map((coin) {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 12),
-          padding: const EdgeInsets.all(16),
-          decoration: BoxDecoration(
-            color: const Color(0xFF1A1A1A),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Row(
-            children: [
-              Icon(coin.icon, color: coin.color, size: 32),
-              const SizedBox(width: 12),
-              Text(
-                coin.name,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const Spacer(),
-              Text(
-                '\$${(coin.name.hashCode % 100000).toString()}',
-                style: const TextStyle(
-                  color: Colors.green,
-                  fontSize: 14,
-                ),
-              ),
-            ],
-          ),
-        );
-      }).toList(),
-    );
-  }
-}
-
-class Coin {
-  final String name;
-  final IconData icon;
-  final Color color;
-  const Coin(this.name, this.icon, this.color);
 }

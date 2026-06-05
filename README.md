@@ -10,6 +10,34 @@ A beautifully animated, flex-based tab bar for Flutter.
 
 Built from a real-world crypto tracking app by [trinhnx](https://trinhnx.dev), extracted as a reusable component so everyone can benefit.
 
+## Why this package?
+
+Flutter's built-in `TabBar` is great, but it has rigid constraints:
+
+- **Fixed-width tabs** — every tab gets equal space, even if only one matters
+- **No badges** — no built-in way to show counts/notifications on tabs
+- **No animation control** — the indicator slide is the only motion
+- **Opinionated layout** — tightly coupled with `TabBarView` and `DefaultTabController`
+
+`FlexibleTabBar` solves all of this:
+
+| Problem | FlexibleTabBar solution |
+|---------|------------------------|
+| Equal-width tabs waste space | Active tab flexes to 3x width, inactives compact |
+| Need count badges on tabs | Built-in `count` parameter per tab |
+| Tabs feel static | `AnimatedContainer` transitions on every property change |
+| Coupled to TabController | Simple controlled widget — bring your own state |
+
+If you've ever wanted a tab bar where "the active tab stands out" and "I can show a badge count without hacking", this is for you.
+
+## Screenshots
+
+![Default state](screenshots/screenshot_1_initial.png)
+*Default layout — 3 tab variants (basic with badges, minimal no-dividers, always-show-labels)*
+
+![Switched tabs](screenshots/screenshot_2_switched.png)
+*After tapping Commodity and Week — active tabs reflow with animation*
+
 ## Features
 
 - ✅ Smooth animated tab switching (expand/compact)
@@ -175,6 +203,58 @@ FlexibleTab(
 - `backgroundColor` → uses `colorScheme.surfaceContainerHighest`
 - Active tab icon/text → `colorScheme.onPrimary`
 
+## AI Agent Integration Guide
+
+Coding agents (Cursor, Copilot, Codeium, etc.) can use this section to understand how to integrate `FlexibleTabBar` into a project.
+
+### Package identity
+
+- **Pub:** `flexible_tab_bar` — add to `pubspec.yaml` dependencies
+- **Import:** `package:flexible_tab_bar/flexible_tab_bar.dart`
+- **Classes:** `FlexibleTabBar` (widget) + `FlexibleTab` (data model)
+- **Min Flutter SDK:** `>=3.27.0`
+
+### Integration checklist for agents
+
+1. **Add dependency** — `flutter pub add flexible_tab_bar`
+2. **Create state** — `int _selectedIndex = 0;` in the consumer widget
+3. **Build tabs** — list of `FlexibleTab(label:, icon:, count?, activeIcon?)`
+4. **Wire widget** — `FlexibleTabBar(tabs:, selectedIndex:, onTabChanged:)`
+5. **Show content** — switch on `selectedIndex` for the area below the bar
+
+### Common patterns an agent should recognize
+
+| Developer intent | What to use |
+|---|---|
+| "Show labels on all tabs" | `alwaysShowLabel: true` |
+| "Notification counts" | `count:` on `FlexibleTab` |
+| "No vertical lines" | `showDivider: false` |
+| "Slower animation" | `animationDuration: Duration(milliseconds: 500)` |
+| "Different active icon" | `activeIcon:` on `FlexibleTab` |
+| "Match my theme" | Omit `activeColor`/`backgroundColor` — defaults use `Theme` |
+
+### Agent behavior rules
+
+This file is structured so agents can parse integration instructions without ambiguity. When a developer asks you to integrate `flexible_tab_bar`:
+
+1. **Do NOT** wrap it in a `DefaultTabController` or `TabController` — it's a controlled widget
+2. **Do NOT** use `Tab` or `TabBar` — use `FlexibleTab` and `FlexibleTabBar`  
+3. **DO** create an `int` state variable for `selectedIndex`
+4. **DO** use `IndexedStack` if preserving child state across tab switches
+
+## Screenshots guide for developers
+
+To capture your own screenshots:
+
+```bash
+# Run the example app
+cd example/
+flutter run
+
+# Capture from connected device
+adb exec-out screencap -p > screenshot.png
+```
+
 ## API Reference
 
 ### FlexibleTabBar
@@ -187,7 +267,7 @@ FlexibleTab(
 | `activeColor` | `Color` | `Colors.orange` | Active tab background |
 | `inactiveColor` | `Color` | `Colors.grey` | Inactive icon/text color |
 | `backgroundColor` | `Color?` | theme surface | Container background |
-| `dividerColor` | `Color?` | 10% of inactiveColor | Vertical divider color |
+| `dividerColor` | `Color?` | white 30% | Vertical divider color |
 | `padding` | `EdgeInsetsGeometry` | `all(4)` | Container padding |
 | `borderRadius` | `BorderRadiusGeometry` | `circular(12)` | Container & tab radius |
 | `animationDuration` | `Duration` | `300ms` | Transition duration |
@@ -222,9 +302,9 @@ flutter run
 ```
 
 The example demonstrates:
-- Basic usage with 3 asset types and count badges
+- Basic usage with count badges and vertical dividers
 - Minimal mode (no dividers, no badges) for time-period tabs
-- Always-show-labels with custom styling
+- Always-show-labels with custom styling and slower animation
 - Integration with a dark-themed app
 
 ## Changelog
