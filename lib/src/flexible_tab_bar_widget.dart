@@ -72,7 +72,8 @@ class FlexibleTabBar extends StatelessWidget {
   /// Thickness of the vertical dividers.
   final double dividerThickness;
 
-  /// Alignment of tab rows.
+  /// Alignment of tab rows along the cross axis.
+  /// Defaults to [CrossAxisAlignment.stretch] so dividers span the full height.
   final CrossAxisAlignment crossAxisAlignment;
 
   /// Padding inside each individual tab.
@@ -110,7 +111,7 @@ class FlexibleTabBar extends StatelessWidget {
     this.inactiveTextStyle,
     this.showDivider = true,
     this.dividerThickness = 1.0,
-    this.crossAxisAlignment = CrossAxisAlignment.center,
+    this.crossAxisAlignment = CrossAxisAlignment.stretch,
     this.tabPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
     this.alwaysShowLabel = false,
     this.countBadgeTextStyle,
@@ -150,12 +151,10 @@ class FlexibleTabBar extends StatelessWidget {
           // Even indices → tabs, odd indices → dividers
           if (index.isOdd) {
             if (!showDivider) return const SizedBox.shrink();
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: Container(
-                width: dividerThickness,
-                color: resolvedDivider,
-              ),
+            return Container(
+              width: dividerThickness,
+              padding: const EdgeInsets.symmetric(vertical: 3),
+              color: resolvedDivider,
             );
           }
 
