@@ -8,7 +8,7 @@ A beautifully animated, flex-based tab bar for Flutter.
 
 **Active tabs expand horizontally**, inactive tabs compact — with icons, labels, optional count badges, and smooth `AnimatedContainer` transitions.
 
-Built from a real-world crypto tracking app by [trinhnx](https://trinhnx.dev), extracted as a reusable component so everyone can benefit.
+Perfect when you need a compact tab bar where the active tab stands out with more space and the inactive tabs stay out of the way.
 
 ## Why this package?
 
