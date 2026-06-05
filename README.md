@@ -1,5 +1,9 @@
 # FlexibleTabBar
 
+[![version](https://img.shields.io/badge/version-0.1.0-blue)]()
+[![pub.dev](https://img.shields.io/pub/v/flexible_tab_bar)](https://pub.dev/packages/flexible_tab_bar)
+[![license](https://img.shields.io/badge/license-MIT-green)]()
+
 A beautifully animated, flex-based tab bar for Flutter.
 
 **Active tabs expand horizontally**, inactive tabs compact — with icons, labels, optional count badges, and smooth `AnimatedContainer` transitions.
