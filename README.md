@@ -274,7 +274,7 @@ adb exec-out screencap -p > screenshot.png
 | `animationCurve` | `Curve` | `easeInOut` | Transition curve |
 | `showDivider` | `bool` | `true` | Show vertical dividers |
 | `dividerThickness` | `double` | `1.0` | Divider width |
-| `crossAxisAlignment` | `CrossAxisAlignment` | `stretch` | Row cross-axis alignment |
+| `crossAxisAlignment` | `CrossAxisAlignment` | `center` | Row cross-axis alignment |
 | `tabPadding` | `EdgeInsetsGeometry` | `sym(v:10)` | Inner tab padding |
 | `alwaysShowLabel` | `bool` | `false` | Show labels on inactive tabs |
 | `activeTextStyle` | `TextStyle?` | bold 13px white | Active label style |
