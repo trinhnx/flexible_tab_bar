@@ -1,0 +1,19 @@
+name: flexible_tab_bar_example
+description: Example app for flexible_tab_bar package.
+publish_to: 'none'
+
+environment:
+  sdk: ^3.0.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flexible_tab_bar:
+    path: ../
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
